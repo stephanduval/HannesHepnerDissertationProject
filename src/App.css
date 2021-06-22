@@ -36,3 +36,81 @@
     transform: rotate(360deg);
   }
 }
+
+
+/*
+ *  Author: Stephan DuVal
+ *  Date: 29 March 2021
+ 
+ Flexbox-based CSS style sheet for index.html
+ Part of the Hannes Hepner Doctoral Thesis Project
+
+ 
+*/
+
+:root {
+  --navBarColor: deepskyblue;
+  --white: #FFFFFF;
+  --grey1: #EEEEEE;
+  --grey2: #CCCCCC;
+  --grey3: #999999;
+  --grey4: #666666; 
+  --grey5: #333333;
+  --black: #000000;
+}
+
+body {
+  background: black;
+}
+
+.wrapper {
+  margin-right: auto; /* 1 */
+  margin-left:  auto; /* 1 */
+  background-color: var(grey4);
+  
+}
+
+H1 {
+  text-align: right;
+}
+
+.appWrapper {
+  margin: auto;
+  max-width: 960px;
+  border: 3px solid rgb(108, 109, 108);
+  padding: 20px;
+}
+
+.headerBar {
+  display: flex;
+  flex-wrap:nowrap;
+  height: 60px;
+  background-color: var(--grey2);
+  justify-content: center;
+  }
+
+.navBarWrapper {
+  background: var(--grey3);
+  height: 2em;
+}
+
+.navBar {
+      display: flex;
+      justify-content: space-evenly;
+      list-style: square;
+      max-width: 600px;
+      margin: 0 auto;    
+
+      margin-top: -13px;
+  }
+
+.photoSpace {
+  display: flex;
+  flex-wrap:nowrap;
+  height: 300px;
+  width: 100%;
+  background-color: var(--grey5);
+  justify-content: center;
+  padding-top: 20px;
+  }
+
