@@ -30,7 +30,7 @@ let timerSeconds = 5;
 returns an array consisting of filenames.
 */
 
-var files = fs.readdirSync();
+var files = fs.readdirSync(testFolder);
 
 // CONSOLE TESTING
 console.log("first item in the array",files[0]);

@@ -1,5 +1,6 @@
 import React from 'react';
 import './Photospace.css';
+import { importAll} from './functions';
 //import logo from '/../../Alcohol.jpg';
 
 // import { files } from './nBackLogic';
@@ -37,21 +38,16 @@ fs.readFile('TestFile.txt', function (err, data) {
 */
 
 
-function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
-  }
-  const images = importAll(require.context('./../images/FeeliePhotos/', false, /\.(png|jpe?g|svg)$/));
+
+
+     
+const images = importAll(require.context('./../../public/images/FeeliePhotos/', false, /\.(png|jpe?g|svg)$/));
   
-console.log(images);
 let imageFileNameArray = Object.keys(images);
-console.log(imageFileNameArray);
 let n =0;
 
 //const currentImage = require('./../images/FeeliePhotos/'+imageFileNameArray[0]);
 //console.log(currentImage);
-console.log(imageFileNameArray[0]);
 
 
 
@@ -59,10 +55,7 @@ const Photospace = ({onInputChange}) => {  // this destructing allows us to use 
     return (
 <div className="photospace">
        <img src={process.env.PUBLIC_URL + './images/FeeliePhotos/'+imageFileNameArray[n]} alt='Current nBack Image'/>;
-        
-
-
-</div>
+  </div>
     )
 }
 export default Photospace;
