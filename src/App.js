@@ -1,7 +1,10 @@
 import './App.css';
 import React, { Component } from 'react';
-import ExamNavigation from './components/ExamNavigation';
+
 import Photospace from './components/Photospace';
+import './components/ExamNavigation.css';
+import { Button } from '@material-ui/core';
+
 
 
 function logKey(e) {
@@ -15,17 +18,26 @@ function logKey(e) {
 }
 
 class App extends Component {
+  state = {
+    count: 0
+  };
 
-  constructor() { // required to use the class object
-    super(); // required to use .this
-    this.state = {
-      input: '',
-    }
+
+  advanceImage = () => {
+      this.setState(prev => ({ count: prev.count +1}));
+      console.log(this.props.count);
+  }
+
+  handleChange(e) {
+      this.props.onCountChange(e.target.value);
+      console.log(this.props.count)
+      return this.props.count;
   }
 
 componentDidMount() {
   document.addEventListener('keydown', logKey); 
 }
+
 
   render () {
   return (
@@ -43,19 +55,28 @@ componentDidMount() {
                     <li>three</li>
                     <li>four</li>
                     <li>five</li>
-                </ul>
+                  </ul>
             </div>
 
-            <Photospace/>
-            <ExamNavigation
-           // onInputChange={this.onInputChange} 
+            <Photospace count = {this.state.count} />
+          
 
-              
-            />
+      <div className="buttonSpace">
+            
+            <Button variant="contained" onClick={this.handleChange}>"W" - Same as *n* photos Back
+            </Button>
+            
+            <Button variant="contained" onClick={this.advanceImage} >"R" - Does not repeat
+            </Button>
+
+        <div className="navigationbuttons">{this.state.count}</div>
+        </div>
+        )
                 
 
     </div>
   );
 }
 }
+
 export default App;

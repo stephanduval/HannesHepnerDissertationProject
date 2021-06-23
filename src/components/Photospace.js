@@ -1,6 +1,6 @@
 import React from 'react';
 import './Photospace.css';
-import { importAll} from './functions';
+import { importAll } from './functions';
 //import logo from '/../../Alcohol.jpg';
 
 // import { files } from './nBackLogic';
@@ -55,6 +55,7 @@ const Photospace = ({onInputChange}) => {  // this destructing allows us to use 
     return (
 <div className="photospace">
        <img src={process.env.PUBLIC_URL + './images/FeeliePhotos/'+imageFileNameArray[n]} alt='Current nBack Image'/>;
+       
   </div>
     )
 }
