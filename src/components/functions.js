@@ -13,9 +13,3 @@ export const importAll = (r) => {
        }
 
 
-export const advanceImage = (n) => {
-    n=0
-    n++
-    console.log("n",n)
-    return n
-}
