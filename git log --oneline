@@ -1,0 +1,35 @@
+[33mcommit 452bf5a79206257dd7d3e021ec9b714831b5b887[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Fri Jun 25 10:48:33 2021 -0600
+
+    Modified functions .js
+
+[33mcommit 9560abc5d01354488f0bcad338d012ac51c2319a[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Tue Jun 22 23:19:53 2021 -0600
+
+    stuck on the Hooks implementation, i'm going to look it up next
+
+[33mcommit 68eea2c489477b925befcd67114599d8c6230f4c[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Tue Jun 22 18:50:58 2021 -0600
+
+    Button Working to update counter working on sharing state between JS components
+
+[33mcommit 1d00d960d939e1dfdd4962b7f6f2ef8ac69aa1a1[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Tue Jun 22 14:34:22 2021 -0600
+
+    dynamic image src is working
+
+[33mcommit 1e61e5150483670342bb2e0d27926a92bb324ee7[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Tue Jun 22 14:21:13 2021 -0600
+
+    updated the dynamic image src, not quite working yet
+
+[33mcommit 3d8898c7afbc0e0548277750512bf51e76e649eb[m
+Author: Stephan DuVal <stephan.duval@gmail.com>
+Date:   Sun Jun 20 00:08:15 2021 -0600
+
+    Initialize project using Create React App

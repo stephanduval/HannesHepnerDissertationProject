@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from 'react';
+import React, {  useState, useEffect  } from 'react';
 
 import Photospace from './components/Photospace';
 import './components/ExamNavigation.css';
@@ -17,66 +17,78 @@ function logKey(e) {
     }
 }
 
-class App extends Component {
+function App() { 
+  // going from classes and props to hooks we lose the constructor, super and this.state                             
+  // we use the UseState hook and destructuring to recreate the state constructor
+  // First we create an array with the variable that changes and a function that changes the state of that variable
+  // the useState function takes the initial state of the variable as an argument
+  // Hooks is not a JS construct, its a bit of react magic
+  // hole shit is that so much cleaner or what?!
+  // we are using array destructuring to name our variables
+  const [count, setImageCount] = useState(0)
+
+  
+// Old version using props
+/*  
+ class App extends Component {
   state = {
     count: 0
   };
+*/
 
 
-  advanceImage = () => {
-      this.setState(prev => ({ count: prev.count +1}));
-      console.log(this.props.count);
-  }
 
-  handleChange(e) {
-      this.props.onCountChange(e.target.value);
-      console.log(this.props.count)
-      return this.props.count;
-  }
-
-componentDidMount() {
+const componentDidMount = () => {
   document.addEventListener('keydown', logKey); 
 }
 
+// removed this from className = "App"  onKeyDown={this.onKeyPressed}
 
-  render () {
-  return (
-    <div className="App" onKeyDown={this.onKeyPressed}>
+
+return false ?
+// Dis plays a loading message if the asynchronous call hasn't come back (this.state.robots.lenght is 0)
+// we no longer need .this so we take it out
+//if (this.state.robots.length === 0) {
+
+<h1>Loading</h1> :
+(
+<div className="App" >
     
-            <div className="headerBar">
-                <div align="center">This is a Header (class topBar)</div>
-            </div>
-
-            <div className="navBarWrapper">
-                  <ul className="navBar">
-                  
-                    <li>one</li>
-                    <li>two</li>
-                    <li>three</li>
-                    <li>four</li>
-                    <li>five</li>
-                  </ul>
-            </div>
-
-            <Photospace count = {this.state.count} />
-          
-
-      <div className="buttonSpace">
-            
-            <Button variant="contained" onClick={this.handleChange}>"W" - Same as *n* photos Back
-            </Button>
-            
-            <Button variant="contained" onClick={this.advanceImage} >"R" - Does not repeat
-            </Button>
-
-        <div className="navigationbuttons">{this.state.count}</div>
-        </div>
-        )
-                
-
+    <div className="headerBar">
+        <div align="center">This is a Header (class topBar)</div>
     </div>
-  );
+
+    <div className="navBarWrapper">
+          <ul className="navBar">
+          
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+            <li>four</li>
+            <li>five</li>
+          </ul>
+    </div>
+
+    <Photospace count = {count} />
+  
+
+<div className="buttonSpace">
+    
+    <Button variant="contained" >"W" - Same as *n* photos Back
+    </Button>
+    Count: {count}
+    <Sibling1 setUsername={setUsername} />
+      <Sibling2 username={username} />
+    <Button variant="contained" onClick={()=>setImageCount(count+1)}>"R" - Does not repeat
+    </Button>
+</div>
+<div className="navigationbuttons">Count: {count}</div>
+</div>
+)
+        
+
 }
-}
+
+
 
 export default App;

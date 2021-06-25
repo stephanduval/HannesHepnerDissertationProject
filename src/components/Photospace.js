@@ -55,7 +55,7 @@ const Photospace = ({onInputChange}) => {  // this destructing allows us to use 
     return (
 <div className="photospace">
        <img src={process.env.PUBLIC_URL + './images/FeeliePhotos/'+imageFileNameArray[n]} alt='Current nBack Image'/>;
-       
+       Count from Hook in App.js:
   </div>
     )
 }
