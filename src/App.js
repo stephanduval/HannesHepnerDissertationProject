@@ -5,6 +5,9 @@ import ExamNavigation from './components/ExamNavigation.js';
 import { Button } from '@material-ui/core';
 import './components/ExamNavigation.js';
 import {a} from './components/exporttest.js';
+import UserContext from './components/createContextFunction';
+
+const user = 'fsdfsdf';
 
 
 function logKey(e) {
@@ -57,7 +60,7 @@ return false ?
     <div className="headerBar">
         <div align="center">This is a Header (class topBar)</div>
     </div>
-
+    <UserContext.Provider value={user}>
     <div className="navBarWrapper">
           <ul className="navBar">
           
@@ -65,15 +68,16 @@ return false ?
             <li>two</li>
             <li>three</li>
             <li>four</li>
-            <li>five {a}</li>
+            <li>{user} five {a}</li>
           </ul>
     </div>
-
+    </UserContext.Provider>
+    <UserContext.Provider value={user}>
     <Photospace />
   
 
     <ExamNavigation />
-
+</UserContext.Provider>
     
 </div>
 )
