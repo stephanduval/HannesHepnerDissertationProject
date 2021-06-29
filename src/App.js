@@ -1,10 +1,10 @@
 import './App.css';
-import React, {  useState, useEffect  } from 'react';
-
+import React, {  useState, useEffect } from 'react';
 import Photospace from './components/Photospace';
-import './components/ExamNavigation.css';
+import ExamNavigation from './components/ExamNavigation.js';
 import { Button } from '@material-ui/core';
-
+import './components/ExamNavigation.js';
+import {a} from './components/exporttest.js';
 
 
 function logKey(e) {
@@ -25,7 +25,7 @@ function App() {
   // Hooks is not a JS construct, its a bit of react magic
   // hole shit is that so much cleaner or what?!
   // we are using array destructuring to name our variables
-  const [count, setImageCount] = useState(0)
+
 
   
 // Old version using props
@@ -65,24 +65,16 @@ return false ?
             <li>two</li>
             <li>three</li>
             <li>four</li>
-            <li>five</li>
+            <li>five {a}</li>
           </ul>
     </div>
 
-    <Photospace count = {count} />
+    <Photospace />
   
 
-<div className="buttonSpace">
+    <ExamNavigation />
+
     
-    <Button variant="contained" >"W" - Same as *n* photos Back
-    </Button>
-    Count: {count}
-    <Sibling1 setUsername={setUsername} />
-      <Sibling2 username={username} />
-    <Button variant="contained" onClick={()=>setImageCount(count+1)}>"R" - Does not repeat
-    </Button>
-</div>
-<div className="navigationbuttons">Count: {count}</div>
 </div>
 )
         

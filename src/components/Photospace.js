@@ -1,6 +1,7 @@
 import React from 'react';
 import './Photospace.css';
 import { importAll } from './functions';
+
 //import logo from '/../../Alcohol.jpg';
 
 // import { files } from './nBackLogic';
