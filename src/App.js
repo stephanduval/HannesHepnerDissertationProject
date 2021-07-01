@@ -1,13 +1,20 @@
 import './App.css';
-import React, {  useState, useEffect } from 'react';
+import React, {  useState, useEffect, setState } from 'react';
 import Photospace from './components/Photospace';
 import ExamNavigation from './components/ExamNavigation.js';
 import { Button } from '@material-ui/core';
 import './components/ExamNavigation.js';
-import {a} from './components/exporttest.js';
-import UserContext from './components/createContextFunction';
+import useStateCallback from './components/useStateCallback'
+
+import { Provider } from 'react-redux';
+
+import store from './store';
 
 const user = 'fsdfsdf';
+
+
+
+
 
 
 function logKey(e) {
@@ -38,6 +45,14 @@ function App() {
     count: 0
   };
 */
+const [state, setState] = useStateCallback(0);
+
+const handleClick = () =>
+    setState(
+      prev => prev + 1,
+      // important: use `s`, not the stale/old closure value `state`
+      s => console.log("I am called after setState, state:", s)
+    );
 
 
 
@@ -56,32 +71,34 @@ return false ?
 <h1>Loading</h1> :
 (
 <div className="App" >
-    
+    <Provider store={store}>
     <div className="headerBar">
-        <div align="center">This is a Header (class topBar)</div>
+        <div align="center">This is a Header (class topBar)
+        </div>
     </div>
-    <UserContext.Provider value={user}>
-    <div className="navBarWrapper">
+     <div className="navBarWrapper">
           <ul className="navBar">
           
             <li>one</li>
             <li>two</li>
             <li>three</li>
             <li>four</li>
-            <li>{user} five {a}</li>
+            <li>{user} five</li>
           </ul>
+          
     </div>
-    </UserContext.Provider>
-    <UserContext.Provider value={user}>
     <Photospace />
-  
-
     <ExamNavigation />
-</UserContext.Provider>
-    
+    <div className="headerBar">
+            
+      <p>Handleclick in App.JS state: {state} </p>
+      <button onClick={handleClick}>Click me</button>
+      </div>
+      </Provider>
 </div>
+
 )
-        
+//ford04 on https://stackoverflow.com/questions/54954091/how-to-use-callback-with-usestate-hook-in-react     
 
 }
 

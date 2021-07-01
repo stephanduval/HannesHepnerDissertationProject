@@ -1,10 +1,21 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, setState } from 'react'
 import './ExamNavigation.css';
 import UserContext from './createContextFunction';
+import useStateCallback from './useStateCallback'
+
 
 
 
 function ExamNavigation() {
+
+    const handleClick = () =>
+    setState(
+      prev => prev + 1,
+      // important: use `s`, not the stale/old closure value `state`
+      s => console.log("I am called after setState, state:", s)
+    );
+
+    const [state, setState] = useStateCallback(0);
     const[count, setImageCount] = useState(0)
     const user = useContext(UserContext);
 
@@ -12,8 +23,6 @@ function ExamNavigation() {
 
     const b = () => console.log(a=a+1)
     
-    const handleClick = value => () => console.log(value); b();
-
     function buttonfunk(value) {
         console.log(value);
 
@@ -32,12 +41,12 @@ function ExamNavigation() {
            
     <button variant="contained" intValue={10} stringValue={"Hello"}>"W" - Same as *n* photos Back
         </button>
-        Count: {count} Welcome, {user}
+        SetImageCount() in ExamNav. count: {count} Welcome, {user}
         <button variant="contained" onClick={()=>setImageCount(count+1)}>"R" - Does not repeat
         </button>
-        <button onClick={b}>Speak</button>;
+        <button onClick={handleClick}>ExamNav Handleclick</button>;
 
-        asasas
+        ExamNav Handleclick State: {state}
         </div>
 
         )

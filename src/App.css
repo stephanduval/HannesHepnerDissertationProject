@@ -84,7 +84,7 @@ H1 {
 .headerBar {
   display: flex;
   flex-wrap:nowrap;
-  height: 60px;
+  height: 150px;
   background-color: var(--grey2);
   justify-content: center;
   }
