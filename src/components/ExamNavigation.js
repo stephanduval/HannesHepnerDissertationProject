@@ -2,7 +2,10 @@ import React, { useState, useContext, setState } from 'react'
 import './ExamNavigation.css';
 import UserContext from './createContextFunction';
 import useStateCallback from './useStateCallback'
-
+// redux tutoorial components:
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { currentImage } from '../actions/actions';
 
 
 
@@ -12,7 +15,8 @@ function ExamNavigation() {
     setState(
       prev => prev + 1,
       // important: use `s`, not the stale/old closure value `state`
-      s => console.log("I am called after setState, state:", s)
+      s => console.log("handleClick, state:", s),
+      currentImage(state),
     );
 
     const [state, setState] = useStateCallback(0);
@@ -24,9 +28,12 @@ function ExamNavigation() {
     const b = () => console.log(a=a+1)
     
     function buttonfunk(value) {
-        console.log(value);
+        console.log('handleClick',value);
 
+       
     }
+
+
 
 
 
