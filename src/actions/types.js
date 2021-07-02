@@ -5,4 +5,4 @@ for their cases
 
 */
 
-export const CURRENT_IMAGE = 'CURRENT_IMAGE';
+export const UPDATE_CURRENT_IMAGE = 'UPDATE_CURRENT_IMAGE';

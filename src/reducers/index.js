@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import postReducer from './reducers';
+import updateCurrentImage from './reducers';
 
 
 export default combineReducers({
-  posts: postReducer
+  count: updateCurrentImage
 });

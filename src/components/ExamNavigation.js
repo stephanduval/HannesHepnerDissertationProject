@@ -5,7 +5,7 @@ import useStateCallback from './useStateCallback'
 // redux tutoorial components:
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { currentImage } from '../actions/actions';
+import { updateCurrentImage } from '../actions/actions';
 
 
 
@@ -16,7 +16,7 @@ function ExamNavigation() {
       prev => prev + 1,
       // important: use `s`, not the stale/old closure value `state`
       s => console.log("handleClick, state:", s),
-      currentImage(state),
+     // updateCurrentImage(state),
     );
 
     const [state, setState] = useStateCallback(0);

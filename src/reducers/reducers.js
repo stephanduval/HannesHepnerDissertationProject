@@ -9,7 +9,7 @@ const initialState = {
 // the reducer
 // define the parameters initially as a initial state template for the sate and
 // a empty ojbect for the action
-export const updateCurrentImage(state = initialState, action={}) {
+const updateCurrentImage = (state=initialState, action={}) => {
         switch(action.type) {
           case UPDATE_CURRENT_IMAGE:
 
@@ -18,7 +18,7 @@ export const updateCurrentImage(state = initialState, action={}) {
           // return an object containing a copy of state and modify it with the new count value
             return { ...state, count: action.payload }
             //The above is a destructured version of this:
-            // return Object.assign({}, state, count: action.payload)
+            // return Object.assign({}, state, { count: action.payload})
             /*The Object.assign() method copies all enumerable own properties
             from one or more source objects to a target object. It returns
               the modified target object.
@@ -35,3 +35,4 @@ export const updateCurrentImage(state = initialState, action={}) {
       }
     }
      
+export default updateCurrentImage
